@@ -6,9 +6,10 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 # Loop through directories in the current directory:
-for i in */;
+for d in */;
 do
-	zip -j ${i%/}.cbz $i*;
+	# Zip up the files up into a CBZ archive:
+	zip -j ${d%/}.cbz $d*;
 done
 
 # Restore original $IFS value:
