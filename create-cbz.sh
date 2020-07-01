@@ -1,6 +1,7 @@
 #!/bin/bash
 # Save existing $IFS value to a variable for recall later:
 SAVEIFS=$IFS
+
 # Assign new value to $IFS:
 IFS=$(echo -en "\n\b")
 
