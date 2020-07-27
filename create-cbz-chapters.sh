@@ -9,7 +9,7 @@ IFS=$(echo -en "\n\b")
 for d in */;
 do
 	# Zip up the files up into a CBZ archive:
-	zip -j ${d%/}.cbz $d*;
+	zip -j "${d%/}".cbz "$d"*;
 done
 
 # Restore original $IFS value:
