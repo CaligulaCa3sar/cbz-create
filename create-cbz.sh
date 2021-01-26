@@ -12,7 +12,7 @@
 #			of the working location.
 #
 
-# Function that creates the .czb files: 
+# Function that creates the .cbz files: 
 function createCBZ()
 {
 	# Variables
@@ -20,7 +20,7 @@ function createCBZ()
 	d="${1}"
 	IFS=$(echo -en "\n\b")
 
-	# Zip up the files up into a CBZ archive:
+	# Zip up the files up into a .cbz archive:
         zip -j "${d%/}".cbz "${d}"{*.jpg,*.jpeg,*.gif,*.png};
 }
 
