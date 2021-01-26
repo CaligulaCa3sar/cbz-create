@@ -1,6 +1,5 @@
 # create-cbz
 A Bash script that zips up multiple folders containing image files (extensions .jpg, .jpeg, .gif or .png) into .cbz archives.
-Script will look at 
 
 ## Installation:
 Put the script file anywhere you like, make sure it's executable and away you go!
