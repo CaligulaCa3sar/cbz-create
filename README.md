@@ -34,7 +34,7 @@ Beach/          Manga 1/          Manga 2/
 Miscellaneous/  Unsorted/
 $ create-cbz ~/Pictures/Manga*/
 ```
-Using Bash expansion, this example would create .cbz files of folders at `~/Pictures` from any sub-folders that have names beginning with "Manga" and name them accordingly.
+Using Bash expansion, this example would create .cbz files at `~/Pictures` from any sub-folders that have names beginning with "Manga" and name them accordingly.
 ### Without Arguments
 ```bash
 $ cd ~/Pictures
