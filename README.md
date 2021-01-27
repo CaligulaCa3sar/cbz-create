@@ -7,7 +7,7 @@ Personally, I like to put custom scripts in /opt/scripts and then create symlink
 
 ```bash
 $ sudo cp -p create-cbz.sh /opt/scripts/create-cbz.sh
-$ sudo chmod 711 /opt/scripts/create-cbz.sh
+$ sudo chmod 755 /opt/scripts/create-cbz.sh
 $ sudo ln -s /opt/scripts/create-cbz.sh /usr/local/bin/create-cbz
 ```
 
