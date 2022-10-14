@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-#	Name:		create-cbz.sh
-#	Version:	2.0
-#	Date:		2021-01-26
-#	Usage:		./create-cbz.sh [<directory>...]
+#	Name:		cbz-create.sh
+#	Version:	2.1
+#	Date:		2022-10-14
+#	Usage:		./cbz-create.sh [<directory>...]
 #	Description:	Zips image files found in the specified
 #			directories into .cbz files named for the
 #			containing directory. If no directories
@@ -12,16 +12,20 @@
 #			of the working location.
 #
 
+# Variables
+EXTENSIONS="*.jpg,*.jpeg,*.png,*.gif"	# Edit this string to add and remove file extensions as required
+
 # Function that creates the .cbz files: 
-function createCBZ()
+function cbzCreate()
 {
 	# Variables
-	local d IFS
+	local d IFS EXTENSIONS
 	d="${1}"
 	IFS=$(echo -en "\n\b")
+	EXTENSIONS="${2},${2^^}"	# Concatenate the original string with an uppercase version
 
-	# Zip up the files up into a .cbz archive:
-        zip -j "${d%/}".cbz "${d}"{*.jpg,*.jpeg,*.gif,*.png};
+	# Zip the files up into a .cbz archive:
+        eval zip -j "${d%/}".cbz "${d}"{"${EXTENSIONS}"};
 }
 
 # Check if arguments have been passed into the script:
@@ -35,7 +39,7 @@ then
 	then
 		for d in */;
 		do
-			createCBZ "${d}"
+			cbzCreate "${d}"
 		done
 	else
 		printf "\n\nExiting...\n\n"
@@ -44,6 +48,6 @@ else
 	# Process the supplied list of directories:
 	for d in "${@}";
 	do
-		createCBZ "${d}"
+		cbzCreate "${d}" "${EXTENSIONS}"
 	done
 fi
