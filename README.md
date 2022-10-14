@@ -44,3 +44,6 @@ Miscellaneous/  Unsorted/
 $ cbz-create
 ```
 Running the script without arguments will cause it to attempt to create .cbz files of **every sub-directory at your current location**. As this could potentially be messy if done by accident, the script will first prompt you to confirm that you meant to run it without arguments before attempting to do so.
+
+##Customisation:
+Since version 2.2, the script now contains a variable at the top named "EXTENSIONS" which can be edited to expand the list of file extensions searched.
