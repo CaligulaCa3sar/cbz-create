@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #	Name:		cbz-create.sh
-#	Version:	2.1
+#	Version:	2.2
 #	Date:		2022-10-14
 #	Usage:		./cbz-create.sh [<directory>...]
 #	Description:	Zips image files found in the specified
