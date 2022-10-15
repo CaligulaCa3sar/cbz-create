@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 #	Name:		cbz-create.sh
-#	Version:	2.2
-#	Date:		2022-10-14
+#	Version:	2.3
+#	Date:		2022-10-15
 #	Usage:		./cbz-create.sh [<directory>...]
 #	Description:	Zips image files found in the specified
 #			directories into .cbz files named for the
@@ -13,7 +13,7 @@
 #
 
 # Variables
-EXTENSIONS="*.jpg,*.jpeg,*.png,*.gif"	# Edit this string to add and remove file extensions as required
+EXTENSIONS="*.jpg,*.jpeg,*.png,*.gif,*.webp"	# Edit this string to add and remove file extensions as required
 
 # Function that creates the .cbz files: 
 function cbzCreate()
@@ -25,7 +25,7 @@ function cbzCreate()
 	EXTENSIONS="${2},${2^^}"	# Concatenate the original string with an uppercase version
 
 	# Zip the files up into a .cbz archive:
-        eval zip -j "${d%/}".cbz "${d}"{"${EXTENSIONS}"};
+        eval zip -j $(printf %q "${d%/}").cbz $(printf %q "${d}"){"${EXTENSIONS}"};
 }
 
 # Check if arguments have been passed into the script:
@@ -39,7 +39,7 @@ then
 	then
 		for d in */;
 		do
-			cbzCreate "${d}"
+			cbzCreate "${d}" "${EXTENSIONS}"
 		done
 	else
 		printf "\n\nExiting...\n\n"
